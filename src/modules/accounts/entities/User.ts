@@ -1,26 +1,36 @@
+import { v4 as uuidV4 } from 'uuid';
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 
-import { v4 as uuidV4 } from "uuid";
+@Entity("users")
+class User {
 
-@Entity("specifications")
-class Specification {
   @PrimaryColumn()
-  id?: string;
+  id: string;
 
   @Column()
   name: string;
 
   @Column()
-  description: string;
+  email: string;
+
+  @Column()
+  password: string;
+
+  @Column()
+  driver_license: string;
+
+  @Column()
+  isAdmin: boolean;
 
   @CreateDateColumn()
   created_at: Date;
 
   constructor() {
-    if (!this.id) { //when id doesn't exist, it will create a new id
+    if (!this.id) {
       this.id = uuidV4();
     }
   }
+
 }
 
-export { Specification }
+export { User }

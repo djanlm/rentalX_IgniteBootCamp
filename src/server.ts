@@ -1,11 +1,13 @@
 //const express = require("express"); sem typescript nós importavamos usando essa sintaxe
 import express from "express";
 import swaggerUi from "swagger-ui-express"; //swagger é usado pra fazer documentação
+import "./database";
+import "./shared/container";
 
 import { router } from "./routes";
 import swaggerFile from './swagger.json';
 
-import "./database";
+
 
 const app = express();
 
